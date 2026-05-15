@@ -62,6 +62,16 @@ contract MinimalERC721 {
         _transfer(from, to, tokenId);
     }
 
+    function safeTransferFrom(address from, address to, uint256 tokenId) public virtual {
+        if (!_isApprovedOrOwner(msg.sender, tokenId)) revert NotOwnerOrApproved();
+        _transfer(from, to, tokenId);
+    }
+
+    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata) public virtual {
+        if (!_isApprovedOrOwner(msg.sender, tokenId)) revert NotOwnerOrApproved();
+        _transfer(from, to, tokenId);
+    }
+
     function _mint(address to, uint256 tokenId) internal virtual {
         if (to == address(0)) revert TransferToZeroAddress();
         if (_owners[tokenId] != address(0)) revert TokenAlreadyMinted();

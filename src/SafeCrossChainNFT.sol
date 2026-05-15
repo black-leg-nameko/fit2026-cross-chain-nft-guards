@@ -94,4 +94,17 @@ contract SafeCrossChainNFT is MinimalERC721 {
         super.transferFrom(from, to, tokenId);
     }
 
+    function safeTransferFrom(address from, address to, uint256 tokenId) public override whenActive(tokenId) {
+        super.safeTransferFrom(from, to, tokenId);
+    }
+
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes calldata data
+    ) public override whenActive(tokenId) {
+        super.safeTransferFrom(from, to, tokenId, data);
+    }
+
 }
