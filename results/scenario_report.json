@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-15T04:21:52.950Z",
+  "scenarios": [
+    {
+      "name": "pending transfer",
+      "baseline": {
+        "ok": true
+      },
+      "proposal": {
+        "ok": false,
+        "error": "HazardousOperationWhilePending"
+      }
+    },
+    {
+      "name": "pending approve",
+      "baseline": {
+        "ok": true
+      },
+      "proposal": {
+        "ok": false,
+        "error": "HazardousOperationWhilePending"
+      }
+    },
+    {
+      "name": "pending listing",
+      "baseline": {
+        "ok": true
+      },
+      "proposal": {
+        "ok": false,
+        "error": "HazardousOperationWhilePending"
+      }
+    },
+    {
+      "name": "transfer after finalize",
+      "baseline": {
+        "ok": true
+      },
+      "proposal": {
+        "ok": true
+      }
+    },
+    {
+      "name": "replay finalize",
+      "baseline": {
+        "ok": true
+      },
+      "proposal": {
+        "ok": false,
+        "error": "MessageAlreadyFinalized"
+      }
+    }
+  ],
+  "pass": true
+}
